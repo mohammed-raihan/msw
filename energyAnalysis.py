@@ -31,9 +31,7 @@ def energyAnalysis (m, lhv, bch, pressure ):
     X = np.zeros((n))
 
     (P[6], P[7], P[10]) = pressure
-    # P6, P14 --> Boiling Pressure and HPST inlet pressure
-    # P7, P12, P13 --> LPST inlet pressure
-    # P10, P11 --> Condensing Pressure
+
 
 
     T[0] = 298
@@ -42,7 +40,7 @@ def energyAnalysis (m, lhv, bch, pressure ):
     s[0] = 367.22
 
     # Pump 1
-    P[11] = P[10] #7e3 # This pressure can be varied for our case
+    P[11] = P[10] 
     Q[11] = 0
 
     h[11] = (PropsSI('H', 'P', P[11], 'Q', Q[11], "REFPROP::water"))
@@ -50,7 +48,7 @@ def energyAnalysis (m, lhv, bch, pressure ):
     T[11] = (PropsSI('T', 'P', P[11], 'Q', Q[11], "REFPROP::water"))
     x[11] = ((h[11] - h[0]) - T[0] * (s[11] - s[0]))
 
-    P[12] =  P[7] #160e3 -->pLPST
+    P[12] =  P[7] 
     s12isen = s[11]
     h12isen = PropsSI('H', 'P', P[12], 'S', s12isen, "REFPROP::water")
     h[12] = h[11] + ((h12isen - h[11]) / 0.88)
@@ -66,7 +64,7 @@ def energyAnalysis (m, lhv, bch, pressure ):
     T[13] = (PropsSI('T', 'P', P[13], 'Q', Q[13], "REFPROP::water"))
     x[13] = ((h[13] - h[0]) - T[0] * (s[13] - s[0]))
 
-    P[14] = P[6] #4162e3  --> pHPST/ Boiling Pressure
+    P[14] = P[6] 
     s14isen = s[13]
     h14isen = PropsSI('H', 'P', P[14], 'S', s14isen, "REFPROP::water")
     h[14] = h[13] + ((h14isen - h[13]) / 0.88)
@@ -104,20 +102,20 @@ def energyAnalysis (m, lhv, bch, pressure ):
     x[15] = (0.000456 * T[4] ** 2 + 0.01057 * T[4] - 54.44) * 1000
 
     # Inside Steam Generator
-    T[5] = 472.15 # Determine the outlet temperature for our case
+    T[5] = 472.15 
     P[5] = 110878
     h[5] = PropsSI("H", "P", P[5], "T", T[5], "REFPROP::exhaustTrindade.mix")
     s[5] = PropsSI("S", "P", P[5], "T", T[5], "REFPROP::exhaustTrindade.mix")
     x[5] = ((h[5] - h_airRef) - T[0] * (s[5] - s_airRef))
 
-    #P[6] = 4162e3 --> pHPST
+    #P[6]
     h[6] = h[14] + (m[3] * (h[4] - h[5]) / m[6])
     s[6] = PropsSI('S', 'P', P[6], 'H', h[6], "REFPROP::water")
     x[6] = ((h[6] - h[0]) - T[0] * (s[6] - s[0]))
     T[6] = PropsSI('T', 'P', P[6], 'H', h[6], "REFPROP::water")
 
     # Turbine 1
-    #P[7] = 160e3 --> pLPST
+   
     s7isen = s[6]
     h7isen = PropsSI('H', 'P', P[7], 'S', s7isen, "REFPROP::water")
     h[7] = h[6] - (0.85 * (h[6] - h7isen))
@@ -138,7 +136,7 @@ def energyAnalysis (m, lhv, bch, pressure ):
     x[9] = x[7]
 
     # Turbine 2
-    #P[10] = 7e3 --> pCond
+    
     s10isen = s[7]
     h10isen = PropsSI('H', 'P', P[10], 'S', s10isen, "REFPROP::water")
     h[10] = h[7] - (0.85 * (h[7] - h10isen))
