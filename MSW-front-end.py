@@ -26,10 +26,10 @@ for i in range (0, m):
     C = np.zeros(n)
     cStream = np.zeros(n)
 
-    lhv = data[i][1]#9861.408716
-    bch = data[i][2]#11633.12108 #fuelExergy(chemComp)
-    mFuel = data[i][3] # 43.1253171
-    mAir = data[i][4]#334.8551657
+    lhv = data[i][1]
+    bch = data[i][2]
+    mFuel = data[i][3]
+    mAir = data[i][4]
 
     mSteam = (16.070/5.68) * mFuel
     mLPST = (14.062/5.68) * mFuel
@@ -39,8 +39,8 @@ for i in range (0, m):
     m = [mCW, mCW, mFuel,mAir, m4, m4, mSteam, mSteam, mSteam-mLPST, mLPST, mLPST, mLPST, mLPST, mSteam, mSteam, mAsh]
 
     pHPST = 4162e3
-    pLPST = 160e3  # np.linspace(100,3000,30)
-    pCond =  7e3  # np.linspace(1,20,20) * 1e3
+    pLPST = 160e3  
+    pCond =  7e3  
 
     pressure = (pHPST, pLPST, pCond)
 
