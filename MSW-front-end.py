@@ -1,3 +1,15 @@
+%  Licensing:
+%
+%    This code is distributed under the GNU GPL license.
+%
+%  Author:
+%
+%   Mohammed Raihan Uddin, Shadman Mahmud
+%
+% Paper:
+%
+%  https://doi.org/10.1016/j.wasman.2021.08.006
+
 import numpy as np
 import pandas as pd
 #import matplotlib.pyplot as plt
