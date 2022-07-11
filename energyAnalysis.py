@@ -1,3 +1,15 @@
+%  Licensing:
+%
+%    This code is distributed under the GNU GPL license.
+%
+%  Author:
+%
+%   Mohammed Raihan Uddin
+%
+% Paper:
+%
+%  https://doi.org/10.1016/j.wasman.2021.08.006
+
 import math
 import numpy as np
 import json, CoolProp.CoolProp as CP
